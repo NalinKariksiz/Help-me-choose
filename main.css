@@ -40,8 +40,14 @@ input {
   color: teal;
 }
 
+.resultSection {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+
 .showResult {
   color: teal;
 }
-body{background-color:BurlyWood;}
-body.orange {background-color:orange;}

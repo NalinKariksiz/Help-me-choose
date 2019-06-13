@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Help me choose!</title>
-  <link href="./main.css" rel="stylesheet">
+  <link href="./main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <h1 class="background_color">Help me choose between..</h1>
+  <h1>Help me choose between..</h1>
   <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" width="550" height="250">
   <div class="inputSection">
 <div class="inputs">
@@ -15,22 +15,31 @@
 <button class="addOption">Add</button>
   </div>
   <div class="resultSection"></div>
-  <button>Go!</button>
+  <button class="submit">Go!</button>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script>
-  $(function(){
+  $(function() {
     $('.resultSection').hide()
 
     var add_option = function(){
       $('.inputs').append('<input></input>')
     }
-$('.addOption').click(add_option)
-  })
-  console.log($("body").css("background-color"));
-$("h1").click(function(){
-    $(this).toggleClass('orange');
-  });
+    $('.addOption').click(add_option)
+
+   var options = []
+   var submit = function () {
+     $('.inputSection').hide()
+     $('.resultSection').css('display', 'flex')
+     $('input').each(function() {
+       options.push($(this).val())
+     })
+  var winner = options[Math.floor(Math.random() * options.length)]
+  console.log(winner)
+  $('.resultSection').text(winner)
+   }
+$('.submit').click(submit)
+})
   </script>
 </body>
 
